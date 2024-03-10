@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignments</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Student</th>
+            <th>Assignment</th>
+            <th>Due Date</th>
+            <th>Completed</th>
+        </tr>
+        {% for assignment in assignments %}
+        <tr>
+            <td>{{ assignment[0] }}</td>
+            <td>{{ assignment[1] }}</td>
+            <td>{{ assignment[2] }}</td>
+            {% if assignment[3] %}
+                <td>True</td>
+            {% else %}
+                <td>False</td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
