@@ -11,6 +11,7 @@
             <th>Assignment</th>
             <th>Due Date</th>
             <th>Completed</th>
+            <th>Subject</th>
         </tr>
         {% for assignment in assignments %}
         <tr>
@@ -22,6 +23,7 @@
             {% else %}
                 <td>False</td>
             {% endif %}
+            <td>{{ assignment[5] }}</td>
         </tr>
         {% endfor %}
     </table>
