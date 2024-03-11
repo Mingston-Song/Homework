@@ -14,10 +14,10 @@
         </tr>
         {% for assignment in assignments %}
         <tr>
-            <td>{{ assignment[0] }}</td>
-            <td>{{ assignment[1] }}</td>
+            <td>{{ assignment[0] }} {{ assignment[1] }}</td>
             <td>{{ assignment[2] }}</td>
-            {% if assignment[3] %}
+            <td>{{ assignment[3] }}</td>
+            {% if assignment[4] %}
                 <td>True</td>
             {% else %}
                 <td>False</td>
