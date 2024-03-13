@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 import sqlite3
-
+import datetime
 app = Flask(__name__)
 DATABASE = "C:/Users/20392/OneDrive - Wellington College/homework_list/homework.db"
 
@@ -17,7 +17,7 @@ def create_connection(db_file):
 @app.route('/')
 def render_main():  # put application's code here
     con = create_connection(DATABASE)
-    query = "SELECT students.fname, students.lname, works.name, assignments.due_date, assignments.completed, works.subject FROM assignments INNER JOIN students ON assignments.student_id=students.id INNER JOIN works ON assignments.work_id=works.id ORDER BY assignments.due_date"
+    query = "SELECT students.fname, students.lname, works.name, date(ROUND(assignments.due_date/1000),'unixepoch'), assignments.completed, works.subject FROM assignments INNER JOIN students ON assignments.student_id=students.id INNER JOIN works ON assignments.work_id=works.id ORDER BY assignments.due_date"
     cur = con.cursor()
     cur.execute(query)
     assignments_list = cur.fetchall()
